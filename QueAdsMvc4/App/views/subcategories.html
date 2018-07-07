@@ -1,0 +1,11 @@
+﻿
+<div class="row">
+    <div>
+        <h3>{{category.Name}}</h3><a ng-click="viewCategoryAds($event, category)">View All Category Ads</a>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="subcategory in subcategories">
+        <div class="category-item">
+            <div class="category-item-heading text-center" ng-click="viewSubCategoryAds(subcategory)"> {{subcategory.Name}}</div>
+        </div>
+    </div>
+</div>

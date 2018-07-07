@@ -1,0 +1,203 @@
+﻿
+<div class="row highlight">
+    <div class="col-xs-12 col-md-12">
+        <ol class="breadcrumb">
+            <li><a href="#" ng-click="getAllLocationPolicies($event)">South Africa</a></li>
+            <li ng-show="province.Id"><a href="#" ng-click="getProvincePolicies($event, province)">{{province.Name}}</a></li>
+            <li ng-show="city.Id"><a href="#" ng-click="getCityPolicies($event, province, city)">{{city.Name}}</a></li>
+            <li ng-show="category.Id"><a href="#" ng-click="getCategoryPolicies($event, category)">{{category.Name}}</a></li>
+            <li ng-show="subCategory.Id"><a href="#" ng-click="getSubCategoryPolicies($event, category, subCategory)">{{subCategory.Name}}</a></li>
+        </ol>
+    </div>
+    <div class="col-xs-12 col-md-12">
+
+        <nav class="navbar navbar-default non-gray-navbar">
+
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".location-list-container">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand visible-xs" href="#"><b>Select Location</b></a>
+            </div>
+            <nav class="navbar-collapse collapse collapse location-list-container" aria-expanded="false">
+                <div class="col-xs-12 col-md-2" ng-repeat="province in provinces" ng-hide="displayCities()">
+                    <a ng-class="getProvinceClass(province)" class="main-item" ng-click="getProvincePolicies($event, province)">{{province.Name}}</a>
+                </div>
+                <div class="col-xs-12 col-md-2" ng-repeat="city in province.Cities" ng-show="displayCities()">
+                    <a ng-class="getCityClass(city)" class="main-item" ng-click="getCityPolicies($event, province, city)">{{city.Name}}</a>
+                </div>
+            </nav>
+        </nav>
+
+        <nav class="navbar navbar-default non-gray-navbar visible-xs">
+
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand visible-xs" href="#"><b>Select Category</b></a>
+            </div>
+            <nav class="navbar-collapse collapse bs-navbar-collapse collapse category-list-container" aria-expanded="false">
+                <ul class="nav navbar-nav category-list-container" id="category">
+                    <li class="nav-main-item">
+                        <a ng-click="getAllCategoryPolicies($event)" class="main-item" ng-class="getAllCategoriesClass()">All Categories</a>
+                    </li>
+                    <li class="nav-main-item" ng-repeat="item in categories" ng-hide="category.Id">
+                        <a class="main-item" ng-class="getCategoryClass(item)" ng-click="getCategoryPolicies($event, item)">{{item.Name}}</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav" id="subcategory" ng-show="category.Id">
+                    <li class="nav-main-item" ng-repeat="item in category.SubCategories">
+                        <a href="#" class="main-item" ng-class="getSubCategoryClass(item)" ng-click="getSubCategoryPolicies($event, category, item)">{{item.Name}} </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </nav>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-xs-12">
+
+    </div>
+    <div class="col-xs-12 col-md-4">
+        <div class="input-group">
+            <input type="search" class="form-control" placeholder="Search for ..." ng-model="searchText">
+            <div class="input-group-addon search-container" ng-click="searchPolicies()">
+                <span class="glyphicon glyphicon-search"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin-top: 10px; padding: 5px;">
+    <div class="col-md-offset-3 col-md-9">
+    </div>
+</div>
+<div class="row" style="margin-left: -25px;">
+    <div class="col-md-3 col-xs-12 category-left hidden-xs" style="padding-left:0;">
+        <div class="panel panel-default">
+            <div class="panel-heading panel-site-heading hidden-xs">Browse Category</div>
+            <div class="panel-body" style="padding:2px; border-radius:0;">
+                <nav class="navbar navbar-default non-gray-navbar">
+
+                    <div class="navbar-header">
+                        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand visible-xs" href="#"><b>Select Category</b></a>
+                    </div>
+                    <nav class="navbar-collapse collapse bs-navbar-collapse collapse category-list-container" aria-expanded="false" style="height: 1px;">
+                        <ul class="nav navbar-nav category-list-container" id="category">
+                            <li class="nav-main-item">
+                                <a ng-click="getAllCategoryPolicies($event)" class="main-item" ng-class="getAllCategoriesClass()">All Categories</a>
+                            </li>
+                            <li class="nav-main-item" ng-repeat="item in categories" ng-hide="category.Id">
+                                <a class="main-item" ng-class="getCategoryClass(item)" ng-click="getCategoryPolicies($event, item)">{{item.Name}}</a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav" id="subcategory" ng-show="category.Id">
+                            <li class="nav-main-item" ng-repeat="item in category.SubCategories">
+                                <a class="main-item" href="#" ng-class="getSubCategoryClass(item)" ng-click="getSubCategoryPolicies($event, category, item)">{{item.Name}} </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9 col-xs-12 ads-centre">
+
+        <div class="panel-body">
+            <div class="row" ng-repeat="policy in policies">
+                <div class="col-md-12 col-xs-12 ad-container" ng-click="viewPolicy(policy.Id)">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-8 col-xs-6 bold-text">
+                            {{policy.EditDateText}}
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6 bold-text pull-right">
+                            {{policy.Price | currency: 'R '}}
+                        </div>
+                        <div class="col-md-10 col-sm-12  col-xs-12 text-center">
+                            <a class="ad-heading"> {{policy.Subject}}</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 col-xs-12">
+                            <img src="{{policy.PolicyImages[0].ThumbnailImageUrl}}" ng-show="policy.PolicyImages[0].ThumbnailImageUrl" style="width: 80px; height:60px;">
+                        </div>
+                        <div class="col-md-10 col-xs-12">
+                            <div class="col-md-12 col-xs-12 ad-description">
+                                {{policy.Description}}
+                            </div>
+                            <div class="col-md-12 col-xs-12">
+                                <span>{{policy.Province.Name}} <i class="glyphicon glyphicon-play"></i></span>
+                                <span>{{policy.City.Name}} <i class="glyphicon glyphicon-play"></i></span>
+                                <span>{{policy.Category.Name}} <i class="glyphicon glyphicon-play"></i></span>
+                                <span>{{policy.SubCategory.Name}}</span>
+                            </div>
+                            <div class="col-md-12 col-xs-12">
+                                <label class="control-label">{{policy.NegotiableInd? 'Negotiable' : 'Not Negotiable'}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="policies.length > 0">
+            <div class="row grid-footer">
+                <div class="col-md-4 col-xs-12">
+                    <b>Showing <span>{{gridPage.CurrentItemsCount}}</span> of <span>{{total}}</span> entries</b>
+                </div>
+                <div class="col-md-8 col-xs-12">
+                    <ul class="pagination pagination-sm" style="float:right; margin:0;">
+                        <li ng-class="prevPageDisabled()" ng-click="setPage(1)">
+                            <span href="#" title="Go to first page" class="item-cursor">
+                                <span class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
+                            </span>
+                        </li>
+                        <li ng-class="prevPageDisabled()">
+                            <span href="#" ng-click="prevPage()" class="item-cursor">&laquo;</span>
+                        </li>
+                        <li ng-repeat="n in gridPage.Pages" ng-class="{active: n == gridPage.PageIndex}" ng-click="setPage(n)">
+                            <span href="#" class="item-cursor">{{n}}</span>
+                        </li>
+                        <li ng-class="nextPageDisabled()">
+                            <span ng-click="nextPage()" class="item-cursor">&raquo;</span>
+                        </li>
+                        <li ng-class="nextPageDisabled()" ng-click="setPage(gridPage.TotalPages)">
+                            <span title="Go to last page" class="item-cursor">
+                                <span class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="policies.length == 0">
+            No data to display
+        </div>
+
+        <div id='loadingmessage' loading-modal>
+            <div>
+                <p>Loading data, please wait while loading ads ...</p>
+                <div class="loading-image"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div error-control></div>

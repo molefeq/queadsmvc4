@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueAdsMvc4", "QueAdsMvc4\QueAdsMvc4.csproj", "{8291210C-FDCA-4B97-9FB4-1D91D16FE04E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueAdsMvc4.Presentation", "QueAdsMvc4.Presentation\QueAdsMvc4.Presentation.csproj", "{1A129151-0F3B-4C8C-9744-44C48410FF11}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://molefeq.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = QueAdsMvc4.Presentation\\QueAdsMvc4.Presentation.csproj
+		SccProjectName1 = QueAdsMvc4.Presentation
+		SccLocalPath1 = QueAdsMvc4.Presentation
+		SccProjectUniqueName2 = QueAdsMvc4\\QueAdsMvc4.csproj
+		SccProjectName2 = QueAdsMvc4
+		SccLocalPath2 = QueAdsMvc4
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8291210C-FDCA-4B97-9FB4-1D91D16FE04E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8291210C-FDCA-4B97-9FB4-1D91D16FE04E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8291210C-FDCA-4B97-9FB4-1D91D16FE04E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8291210C-FDCA-4B97-9FB4-1D91D16FE04E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A129151-0F3B-4C8C-9744-44C48410FF11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A129151-0F3B-4C8C-9744-44C48410FF11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A129151-0F3B-4C8C-9744-44C48410FF11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A129151-0F3B-4C8C-9744-44C48410FF11}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

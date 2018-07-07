@@ -1,0 +1,1 @@
+﻿var sharedApp = angular.module("sharedServices", ['ngRoute', 'ngSanitize', 'ngAnimate', 'ngCookies', 'ui.bootstrap']);

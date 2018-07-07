@@ -1,0 +1,129 @@
+﻿<div class="row search-row">
+    <div class="col-md-8 col-xs-12">
+
+    </div>
+    <div class="col-xs-12 col-md-4">
+        <div class="input-group">
+            <input type="search" class="form-control" placeholder="Search for ..." ng-model="searchText">
+            <div class="input-group-addon search-container" ng-click="searchPolicies()">
+                <span class="glyphicon glyphicon-search"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row highlight">
+    <div class="col-xs-12 col-md-4">
+        <ol class="breadcrumb">
+            <li ng-click="viewProvinces()"><a style="font-weight:bold; font-size:15px; cursor:pointer; text-decoration:none;">South Africa</a></li>
+            <li ng-show="displayCities()"><a>{{province.Name}}</a></li>
+            <li ng-show="city.Name"><a>{{city.Name}}</a></li>
+        </ol>
+    </div>
+    <div class="col-xs-12 col-md-12">
+        <nav class="navbar navbar-default non-gray-navbar">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".location-list-container" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand visible-xs" href="#"><b>Select Location</b></a>
+            </div>
+            <div class="collapse navbar-collapse location-list-container">
+                <div class="col-xs-12 col-sm-4 col-md-2" ng-repeat="province in provinces" ng-hide="displayCities()">
+                    <a site-subitem="province" class="main-item" ng-click="viewProvinceCities(province)">{{province.Name}}</a>
+                </div>
+                <div class="clearfix visible-xs-block"></div>
+                <div class="col-xs-12 col-sm-4 col-md-2" ng-repeat="city in province.Cities" ng-show="displayCities()">
+                    <a site-subitem="city" ng-class="getCityClass(city)" class="main-item" ng-click="viewCityAds(province, city)">{{city.Name}}</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="row highlight">
+    <nav class="navbar navbar-default non-gray-navbar">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".category-list-container" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand visible-xs" href="#"><b>Select Category</b></a>
+        </div>
+
+        <div class="collapse navbar-collapse category-list-container">
+            <div class="col-xs-12 col-sm-12 col-md-12 category-container">
+
+                <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="category in categories">
+                    <div class="category-item">
+                        <div class="category-item-heading text-center" data-id="{{category.Id}}" category-item> {{category.Name}}</div>
+                        <!--ng-click="viewCategoryAds(category)"<div class="subcategory-container">
+                            <a class="category-subitem" ng-repeat="subcategory in category.SubCategories" ng-click="viewSubCategoryAds(category, subcategory)" ng-show="$index<4">{{subcategory.Name}}</a>
+                            <a class="category-subitem" ng-click="viewCategoryAds(category)">More ...</a>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12" ng-repeat="category in categories" data-parent-id="{{category.Id}}" style="position:relative; display:none;">
+                <div class="col-xs-12 col-sm-12 col-md-12"><h3 style="display:inline-block;max-width:320px; padding-right:5px;z-index:999; cursor:pointer;">{{category.Name}}</h3><a style="font-size:14px; padding-left:10px; font-weight:bold;cursor:pointer;" ng-click="viewCategoryAds(category)">View All Ads</a></div>
+                <div class="col-xs-6 col-sm-4 col-md-3" ng-repeat="subcategory in category.SubCategories">
+                    <a class="main-item" ng-click="viewSubCategoryAds(category, subcategory)" style="font-weight: bold; cursor:pointer;">{{subcategory.Name}}</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="row highlight recent-ads-container">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="panel-heading panel-site-heading"><h3>Recent Ads</h3></div>
+        <div class="panel-body">
+            <div class="row" ng-repeat="policy in recentPolicies">
+                <div class="col-md-12 col-xs-12 ad-container" ng-click="viewPolicy(policy.Id)">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-8 col-xs-6 bold-text">
+                            {{policy.EditDateText}}
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6 bold-text pull-right">
+                            {{policy.Price | currency: 'R '}}
+                        </div>
+                        <div class="col-md-10 col-sm-12  col-xs-12 text-center">
+                            <a class="ad-heading"> {{policy.Subject}}</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 col-xs-12">
+                            <img src="{{policy.PolicyImages[0].ThumbnailImageUrl}}" ng-show="policy.PolicyImages[0].ThumbnailImageUrl" style="width: 80px; height:60px;">
+                        </div>
+                        <div class="col-md-10 col-xs-12">
+                            <div class="col-md-12 col-xs-12 ad-description">
+                                {{policy.Description}}
+                            </div>
+                            <div class="col-md-12 col-xs-12">
+                                <span>{{policy.Province.Name}} <i class="glyphicon glyphicon-play"></i></span>
+                                <span>{{policy.City.Name}} <i class="glyphicon glyphicon-play"></i></span>
+                                <span>{{policy.Category.Name}} <i class="glyphicon glyphicon-play"></i></span>
+                                <span>{{policy.SubCategory.Name}}</span>
+                            </div>
+                            <div class="col-md-12 col-xs-12">
+                                <label class="control-label">{{policy.NegotiableInd? 'Negotiable' : 'Not Negotiable'}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div id='loadingmessage' loading-modal>
+        <div>
+            <p>Loading data, please wait while loading recent ads ...</p>
+            <div class="loading-image"></div>
+        </div>
+    </div>
+</div>
+<div error-control></div>

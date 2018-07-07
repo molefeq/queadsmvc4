@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
+    <link rel="icon" href="/favicon.ico" type="image/ico">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/ico">
+    <link rel="apple-touch-icon" href="/images/FavIcon-Apple.png" type="image/png">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/bundles/bootstrapcss")
+    @RenderSection("styles", required: false)
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            @Html.Partial("_LayoutHeader")
+        </div>
+        <div id="main" class="container">
+            @RenderBody()
+        </div>
+        <div id="footer">
+            @Html.Partial("_LayoutFooter")
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/bootstrapjs")*@
+    @Scripts.Render("~/bundles/angularjs")
+    <script src="@Url.Content("~/Scripts/bootstrap/js/bootstrap.js")"></script>
+
+    <script src="@Url.Content("~/Scripts/bootstrap/js/ui-bootstrap-tpls-0.14.3.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/angular/angular-file-upload-shim.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/angular/angular-file-upload.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/local/sharedapp.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/local/directives/queadsvalidator.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/local/directives/customfield.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/local/directives/customsummary.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/local/directives/matchfield.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/local/directives/action-control.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/local/directives/loadingmodal.js")" t type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/local/directives/errorcontrol.js")" t type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/local/services/appsettings.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/local/services/validationerrorservice.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/local/services/listservice.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/local/services/policyservice.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/local/services/securityservice.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/local/services/contactusservice.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/local/services/servererrorhandler.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/local/services/utils.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/local/factories/errorfactory.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/local/factories/gridpager.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/local/factories/httpinterceptorfactory.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/local/app.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/local/controllers/header.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/local/controllers/error.js")" type="text/javascript"></script>
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ["QueAdsApp"]);
+        });
+
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '473316002869830',
+                xfbml: true,
+                version: 'v2.5'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        @RenderSection("JsCode", required:false)
+
+    </script>
+</body>
+</html>

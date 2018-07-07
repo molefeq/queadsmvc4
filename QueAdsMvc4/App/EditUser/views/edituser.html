@@ -1,0 +1,80 @@
+﻿<div class="row">
+    <div class="col-md-2 col-xs-12">
+
+    </div>
+    <div class="col-md-8 col-xs-12">
+        <form ng-hide="editUserSuccess" ng-submit="editUser()" id="frmEditUser" name="frmEditUser" class="form-horizontal" role="form" novalidate que-ads-validator>
+            <div class="container-fluid">
+                <div class="panel panel-default">
+                    <div class="panel-heading panel-ad-heading"><h5 class="panel-title">Personal Information</h5></div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="Username" class="col-md-3 col-xs-12 control-label">Username</label>
+                            <div class="col-md-9 col-xs-12">
+                                <div class="col-md-12 col-xs-12">
+                                    {{user.Username}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Firstnames" class="col-md-3 col-xs-12 control-label">Firstnames*</label>
+                            <div class="col-md-9 col-xs-12 form-element">
+                                <div class="col-md-12 col-xs-12">
+                                    <input type="text" ng-model="user.Firstnames" placeholder="Enter Firstnames" class="form-control" ng-maxlength="200"
+                                           ng-required="true" name="Firstnames" id="Firstnames"
+                                           data-required-msg="Firstnames are required." data-maxlength-msg="Firstnames cannot be more than 200 characters." />
+                                    <p ng-show="frmEditUser['Firstnames'].$invalid" class="help-block" data-val-for="Firstnames"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Lastname" class="col-md-3 col-xs-12 control-label">Lastname*</label>
+                            <div class="col-md-9 col-xs-12 form-element">
+                                <div class="col-md-12 col-xs-12">
+                                    <input type="text" ng-model="user.Lastname" placeholder="Enter Lastname" class="form-control" ng-maxlength="100" ng-required="true"
+                                           name="Lastname" id="Lastname" data-required-msg="Lastname is required." data-maxlength-msg="Lastname cannot be more than 100 characters." />
+                                    <p ng-show="frmEditUser['Lastname'].$invalid" class="help-block" data-val-for="Lastname"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="EmailAddress" class="col-md-3 col-xs-12 control-label">Email Address*</label>
+                            <div class="col-md-9 col-xs-12 form-element">
+                                <div class="col-md-12 col-xs-12">
+                                    <input type="text" ng-model="user.EmailAddress" placeholder="Enter Email Address" class="form-control" name="EmailAddress" id="EmailAddress"
+                                           ng-maxlength="200" ng-required="true" ng-pattern="/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/"
+                                           data-required-msg="Email Address is required." data-maxlength-msg="Email Address cannot be more than 200 characters."
+                                           data-pattern-msg="Invalid Email Address Format." />
+                                    <p ng-show="frmEditUser['EmailAddress'].$invalid" class="help-block" data-val-for="EmailAddress"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="MobileNumber" class="col-md-3 col-xs-12 control-label">Mobile Number</label>
+                            <div class="col-md-9 col-xs-12 form-element">
+                                <div class="col-md-12 col-xs-12">
+                                    <input type="text" ng-model="user.MobileNumber" placeholder="Enter Mobile Number" class="form-control" ng-maxlength="20" custom="true"
+                                           name="MobileNumber" id="MobileNumber"
+                                           data-maxlength-msg="Mobile Number cannot be more than 20 characters" />
+                                    <p ng-show="frmEditUser['MobileNumber'].$invalid" class="help-block" data-val-for="MobileNumber"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <input type="submit" ng-click="editUser()" id="btnUpdate" value="Update" name="command" class="btn btn-primary btn-block" action-control action-value="Update" action-in-progress-value="Update ..." />
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div ng-show="editUserSuccess">
+            Profile has been successfully updated to view your ads <a ng-click="goToUserAds($event)">click here</a>
+        </div>
+
+    </div>
+    <div class="col-md-2  col-xs-12">
+
+    </div>
+</div>
+<div error-control></div>

@@ -1,0 +1,32 @@
+Message: 
+The remote server returned an error: (407) Proxy Authentication Required.
+
+Stack Trace: 
+   at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadString(Uri address)
+   at DotNetOpenAuth.AspNet.Clients.FacebookClient.QueryAccessToken(Uri returnUrl, String authorizationCode)
+   at DotNetOpenAuth.AspNet.Clients.OAuth2Client.VerifyAuthentication(HttpContextBase context, Uri returnPageUrl)
+   at DotNetOpenAuth.AspNet.OpenAuthSecurityManager.VerifyAuthentication(String returnUrl)
+   at Microsoft.Web.WebPages.OAuth.OAuthWebSecurity.VerifyAuthenticationCore(HttpContextBase context, String returnUrl)
+   at Microsoft.Web.WebPages.OAuth.OAuthWebSecurity.VerifyAuthentication(String returnUrl)
+   at QueAdsMvc4.Controllers.AccountController.ExternalLoginCallback(String returnUrl) in c:\My Work\Online Classifieds\QueAdsMvc4\QueAdsMvc4\Controllers\AccountController.cs:line 58
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+Error Date: 
+07/12/2015 11:46:12
+
+

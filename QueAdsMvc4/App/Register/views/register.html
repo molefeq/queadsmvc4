@@ -1,0 +1,109 @@
+﻿
+<div style="margin-top:35px;"></div>
+
+<div class="row">
+    <div class="col-md-2 col-xs-12">
+
+    </div>
+    <div class="col-md-8 col-xs-12">
+        <div id="divLoginContainer">
+            <form id="frmRegister" name="frmRegister" novalidate que-ads-validator>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Register</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="Firstnames" class="col-md-3 col-xs-12 control-label">Firstnames*</label>
+                            <div class="col-md-9 col-xs-12 form-element">
+                                <div class="col-md-12 col-xs-12">
+                                    <input type="text" ng-model="model.Firstnames" placeholder="Enter Firstnames" class="form-control" ng-maxlength="200" ng-required="true"
+                                           name="Firstnames" id="Firstnames"
+                                           data-required-msg="Firstnames are required." data-maxlength-msg="Firstnames cannot be more than 200 characters." />
+                                    <p ng-show="frmRegister['Firstnames'].$invalid" class="help-block" data-val-for="Firstnames"></p>                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Lastname" class="col-md-3 col-xs-12 control-label">Lastname*</label>
+                            <div class="col-md-9 col-xs-12 form-element">
+                                <div class="col-md-12 col-xs-12">
+                                    <input type="text" ng-model="model.Lastname" placeholder="Enter Lastname" class="form-control" ng-maxlength="100" ng-required="true" custom="true"
+                                           name="Lastname" id="Lastname"
+                                           data-required-msg="Lastname is required." data-maxlength-msg="Lastname cannot be more than 100 characters." />
+                                    <p ng-show="frmRegister['Lastname'].$invalid" class="help-block" data-val-for="Lastname"></p>                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="UserName" class="col-md-3 col-xs-12 control-label">UserName*</label>
+                            <div class="col-md-9 col-xs-12 form-element">
+                                <div class="col-md-12 col-xs-12">
+                                    <input type="text" ng-model="model.UserName" placeholder="Enter UserName" class="form-control" ng-maxlength="50" ng-required="true" ng-pattern="/^[a-zA-Z0-9]{3,50}$/"
+                                           name="UserName" id="UserName"
+                                           data-required-msg="UserName is required." data-maxlength-msg="UserName cannot be more than 50 characters."
+                                           data-pattern-msg="UserName must only be character or numbers of atleast 3 characters." />
+                                    <p ng-show="frmRegister['UserName'].$invalid" class="help-block" data-val-for="UserName"></p>                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Password" class="col-md-3 col-xs-12 control-label">Password*</label>
+                            <div class="col-md-9 col-xs-12 form-element">
+                                <div class="col-md-12 col-xs-12">
+                                    <input type="password" ng-model="model.Password" placeholder="Enter Password" class="form-control" ng-maxlength="50" ng-required="true"
+                                           ng-pattern="/^[a-zA-Z0-9]{3,50}$/" name="Password" id="Password"
+                                           data-required-msg="Password is required." data-maxlength-msg="Password cannot be more than 50 characters."
+                                           data-pattern-msg="Password must only be character or numbers of atleast 3 characters." />
+                                    <p ng-show="frmRegister['Password'].$invalid" class="help-block" data-val-for="Password"></p>                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="ConfirmPassword" class="col-md-3 col-xs-12 control-label">Confirm Password*</label>
+                            <div class="col-md-9 col-xs-12 form-element">
+                                <div class="col-md-12 col-xs-12">
+                                    <input type="password" ng-model="model.ConfirmPassword" placeholder="Enter Confirm Password" class="form-control" ng-maxlength="50" ng-required="true"
+                                           matchfield="model.Password" name="ConfirmPassword" id="ConfirmPassword"
+                                           data-required-msg="Confirm Password is required." data-maxlength-msg="Confirm Password cannot be more than 50 characters."
+                                           data-matchfield-msg="Confirm Password must be same as Password." />
+                                    <p ng-show="frmRegister['ConfirmPassword'].$invalid" class="help-block" data-val-for="ConfirmPassword"></p>                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix visible-xs-block"></div>
+                        <div class="form-group">
+                            <label for="EmailAddress" class="col-md-3 col-xs-12 control-label">Email Address*</label>
+                            <div class="col-md-9 col-xs-12 form-element">
+                                <div class="col-md-12 col-xs-12">
+                                    <input type="text" ng-model="model.EmailAddress" placeholder="Enter Email Address" class="form-control" ng-maxlength="200" ng-required="true"
+                                           ng-pattern="/^([A-Za-z0-9_\.-]+)@([\dA-Za-z\.-]+)\.([A-Za-z\.]{2,6})$/" name="EmailAddress" id="EmailAddress"
+                                           data-required-msg="Email Address is required." data-maxlength-msg="Email Address cannot be more than 200 characters."
+                                           data-pattern-msg="Invalid Email Address Format." />
+                                    <p ng-show="frmRegister['EmailAddress'].$invalid" class="help-block" data-val-for="EmailAddress"></p>                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="MobileNumber" class="col-md-3 col-xs-12 control-label">Mobile Number</label>
+                            <div class="col-md-9 col-xs-12 form-element">
+                                <div class="col-md-12 col-xs-12">
+                                    <input type="text" ng-model="model.MobileNumber" placeholder="Enter Mobile Number" class="form-control" ng-maxlength="20"
+                                           name="MobileNumber" id="MobileNumber"
+                                           ng-pattern="/^([0-9]{0,20})$/" data-pattern-msg="Invalid mobile number."
+                                           data-maxlength-msg="Mobile Number cannot be more than 20 characters." />
+                                    <p ng-show="frmRegister['MobileNumber'].$invalid" class="help-block" data-val-for="MobileNumber"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <input type="submit" ng-click="registerUser()" id="btnRegister" value="Register" name="command" class="btn btn-primary btn-block" action-control action-value="Register" action-in-progress-value="Registering ..." />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-2  col-xs-12">
+
+    </div>
+</div>
+<div error-control></div>

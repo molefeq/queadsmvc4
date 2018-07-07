@@ -1,0 +1,48 @@
+﻿
+<ng-form name="frmPolicyAdditionalField" novalidate>
+    <div class="col-md-10 col-xs-12" ng-class="frmPolicyAdditionalField.PolicyAdditionalField.$error.pattern && (frmPolicyAdditionalField.PolicyAdditionalField.$dirty || formsubmitted)? 'has-error': ''">
+        <div class="col-md-8 col-xs-12" ng-if="policyAdditionalField.DataType=='Integer'">
+            <input class="form-control" type="text" placeholder="{{'Enter ' + policyAdditionalField.DisplayText}}" ng-if="policyAdditionalField.ControlType=='TextBox'"
+                   ng-model="policyAdditionalField.Value"
+                   ng-pattern="/^([0-9]*)$/"
+                   ng-required="{{policyAdditionalField.RequiredInd}}"
+                   name="PolicyAdditionalField">
+            <select ng-if="policyAdditionalField.ControlType=='DropDownList'" class="form-control select-form-control" ng-model="policyAdditionalField.Value"
+                    ng-required="policyAdditionalField.RequiredInd" name="PolicyAdditionalField">
+                <option ng-selected="{{!policyAdditionalField.Value || policyAdditionalField.Value=='' || policyAdditionalField.Value==null}}"
+                        value="">
+                    {{'Select ' + policyAdditionalField.DisplayText + ' ...'}}
+                </option>
+                <option ng-selected="{{policyadditionalfieldoption == policyAdditionalField.Value}}"
+                        ng-repeat="policyadditionalfieldoption in policyAdditionalFieldOptions"
+                        value="{{policyadditionalfieldoption}}">
+                    {{policyadditionalfieldoption}}
+                </option>
+            </select>
+            <p ng-if="policyAdditionalField.RequiredInd" ng-show="frmPolicyAdditionalField.PolicyAdditionalField.$error.required && (frmPolicyAdditionalField.PolicyAdditionalField.$dirty || formsubmitted)" class="help-block">{{policyAdditionalField.DisplayText + ' required.'}}</p>
+            <p ng-show="frmPolicyAdditionalField.PolicyAdditionalField.$error.pattern && (frmPolicyAdditionalField.PolicyAdditionalField.$dirty || formsubmitted)" class="help-block">{{policyAdditionalField.DisplayText + ' is not in a correct format, expected format 12, 1200 etc'}}</p>
+        </div>
+
+        <div class="col-md-8 col-xs-12" ng-if="policyAdditionalField.DataType=='Text'">
+            <input class="form-control" type="text" placeholder="{{'Enter ' + policyAdditionalField.DisplayText}}" ng-if="policyAdditionalField.ControlType=='TextBox'"
+                   ng-model="policyAdditionalField.Value"
+                   name="PolicyAdditionalField"
+                   ng-required="{{policyAdditionalField.RequiredInd}}">
+            <select ng-if="policyAdditionalField.ControlType=='DropDownList'" class="form-control select-form-control" ng-model="policyAdditionalField.Value"
+                    name="PolicyAdditionalField"
+                    ng-required="{{policyAdditionalField.RequiredInd}}" ng-change="setchildadditionalfield({policyadditionalfield:policyAdditionalField})">
+                <option ng-selected="{{!policyAdditionalField.Value || policyAdditionalField.Value=='' || policyAdditionalField.Value==null}}"
+                        value="">
+                    {{'Select ' + policyAdditionalField.DisplayText + ' ...'}}
+                </option>
+                <option ng-selected="{{policyadditionalfieldoption == policyAdditionalField.Value}}"
+                        ng-repeat="policyadditionalfieldoption in policyAdditionalFieldOptions"
+                        value="{{policyadditionalfieldoption}}">
+                    {{policyadditionalfieldoption}}
+                </option>
+            </select>
+            <p ng-if="policyAdditionalField.RequiredInd" ng-show="frmPolicyAdditionalField.PolicyAdditionalField.$error.required && (frmPolicyAdditionalField.PolicyAdditionalField.$dirty || formsubmitted)" class="help-block">{{policyAdditionalField.DisplayText + ' required.'}}</p>
+
+        </div>
+    </div>
+</ng-form>

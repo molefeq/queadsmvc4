@@ -1,0 +1,58 @@
+﻿
+<div style="margin-top:35px;"></div>
+
+<div class="row">
+    <div class="col-md-3 col-xs-12">
+
+    </div>
+    <div class="col-md-6 col-xs-12">
+        <div id="divLoginContainer">
+            <form id="frmLogin" name="frmLogin" novalidate que-ads-validator>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Login</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="UserName" class="col-md-2 col-xs-12 control-label">Username*</label>
+                            <div class="col-md-10 col-xs-12 form-element">
+                                <div class="col-md-12 col-xs-12">
+                                    <input type="text" ng-model="model.UserName"
+                                           placeholder="Enter username" class="form-control"
+                                           ng-required="true"
+                                           data-required-msg="Username is required"
+                                           name="UserName" id="UserName" />
+                                    <p ng-show="frmLogin.UserName.$invalid" class="help-block" data-val-for="UserName"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Password" class="col-md-2 col-xs-12 control-label">Password*</label>
+                            <div class="col-md-10 col-xs-12 form-element">
+                                <div class="col-md-12 col-xs-12">
+                                    <input type="password" ng-model="model.Password" placeholder="Enter password" class="form-control" ng-required="true" data-required-msg="Password is required"
+                                           name="Password" id="Password" />
+                                    <p ng-show="frmLogin.Password.$invalid" class="help-block" data-val-for="Password"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Password" class="col-md-2 col-xs-12 control-label"></label>
+                            <div class="col-md-10 col-xs-12 form-element">
+                                <div class="col-md-12 col-xs-12">
+                                    <a ng-click="goToPasswordReset($event)"><b>Forgot Password?</b></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <input type="submit" ng-click="login()" id="btnLogin" value="Log In" name="command" class="btn btn-primary btn-block" action-control action-value="Log In" action-in-progress-value="Logging In ..." />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-3 col-xs-12">
+
+    </div>
+</div>
+
+<div error-control></div>

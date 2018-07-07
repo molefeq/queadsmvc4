@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Que Ads.co.za - Contact Us";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section styles{
+    <link href="@Url.Content("~/Content/local/viewads.css")" rel="stylesheet">
+}
+
+@section JsCode{
+    angular.bootstrap(document.getElementById('divContactUsContainer'), ['contactUsApp'])
+}
+
+@section scripts{
+    <script src="@Url.Content("~/App/ContactUs/js/app.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/App/ContactUs/js/controllers/contactus.js")" type="text/javascript"></script>
+}
+
+<div ng-non-bindable>
+    <div id="divContactUsContainer" class="container-fluid">
+        <ng-view></ng-view>
+    </div>
+</div>

@@ -1,0 +1,259 @@
+﻿body div.panel-site-heading {
+  font-size: 14px;
+  font-weight: bold;
+}
+body ul.nav-main {
+  width: 100%;
+  margin: 0px;
+}
+body li.nav-main-item {
+  width: 100%;
+}
+body span.subitem-badge {
+  margin-left: 5px;
+}
+body ul.nav-subitem {
+  list-style: none;
+  border: 1px solid #ccc;
+  margin-left: 15px;
+  margin-right: 2px;
+  padding: 0;
+  border-radius: 1px;
+}
+body ul.nav-subitem li {
+  width: 100%;
+}
+body ul.nav-subitem li a {
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  padding-left: 5px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  text-decoration: none;
+}
+body ul.nav-subitem li a:hover,
+body ul.nav-subitem li a.current {
+  background-color: #f5f5f5;
+}
+body div.panel-ad-heading {
+  padding: 9px 5px;
+}
+body div.panel-ad-heading a {
+  display: inline-block;
+  width: 100%;
+  text-decoration: none;
+}
+body div.ad-container a.ad-heading {
+  font: 400 20px/1.125 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: block;
+  text-decoration: none;
+  color: #000;
+}
+body div.panel-ad-heading a h5 {
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+}
+body div.panel-ad-body {
+  padding-bottom: 2px;
+}
+body span.panel-recent-ad-heading-date {
+  float: right;
+}
+body .select-form-control {
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-right: 0 !important;
+  padding-left: 5px !important;
+}
+body .select-form-control option {
+  padding: 5px 5px !important;
+}
+body div.ad-container {
+  cursor: pointer;
+  box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
+  margin-bottom: 10px;
+}
+body div.ad-container div.row {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+body .current-main {
+  background-color: #eee;
+}
+body .category-list-container {
+  padding: 0px;
+  width: 100%;
+}
+body .category-list-container .navbar-nav > li > a {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #428bca;
+}
+body .category-list-container .navbar-nav > li > a:hover,
+body .category-list-container .navbar-nav > li > a:focus {
+  color: #428bca;
+  background-color: #f5f5f5;
+}
+body .category-list-container .navbar-nav > li > a span.badge {
+  margin-left: 8px;
+}
+body .ad-grouping {
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+body .ad-grouping .ad-grouping-heading {
+  font: 400 24px/1.125 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+body .ads-centre hr {
+  margin-bottom: 2px;
+  margin-top: 2px;
+  border-top: 3px solid #cfcdcd;
+}
+body .my-ad-link {
+  padding-right: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+body .my-ad-link:hover {
+  text-decoration: none;
+  color: ActiveCaption;
+  cursor: pointer;
+}
+body #divViewAdContainer .breadcrumb-container .breadcrumb li a {
+  cursor: pointer;
+}
+body #divLoginContainer a {
+  cursor: pointer;
+}
+body #divEditAdsContainer a,
+body #divCreateAdsContainer a,
+body #divForgotPasswordContainer a,
+body #divUserAdsContainer a {
+  cursor: pointer;
+}
+body span.ad-reply-header-username {
+  font-size: 12px;
+  padding-right: 5px;
+}
+body span.ad-reply-header-phone {
+  font-size: 12px;
+  padding-right: 5px;
+  float: right;
+}
+@media all and (min-width: 1024px) and (max-width: 1500px) {
+  body div.category-left {
+    min-width: 240px !important;
+    max-width: 300px !important;
+    padding-right: 10px !important;
+    padding-left: 0px !important;
+    width: 25% !important;
+  }
+  body div.ads-centre {
+    min-width: 500px !important;
+    max-width: 900px !important;
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+    width: 70% !important;
+    height: 100%;
+    min-height: 200px;
+  }
+  body img.mainadimage {
+    min-width: 400px !important;
+    max-width: 800px !important;
+    display: inline-block;
+    width: 50%;
+    box-sizing: border-box;
+  }
+  body img.sideadimage {
+    min-width: 100px !important;
+    max-width: 100px !important;
+    display: inline-block;
+    width: 10%;
+    box-sizing: border-box;
+  }
+}
+@media (max-width: 768px) {
+  body #divViewAdsContainer .breadcrumb {
+    padding: 8px 0px;
+    margin-bottom: 10px;
+    list-style: none;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+  }
+  body #divViewAdsContainer > div.row > div.col-md-12,
+  body #divViewAdsContainer > div.row > div.col-md-2,
+  body #divViewAdsContainer > div.row > div.col-md-3,
+  body #divViewAdsContainer > div.row > div.col-md-4,
+  body #divViewAdsContainer > div.row > div.col-md-8 {
+    padding-left: 1px;
+    padding-right: 5px;
+    min-width: 100px;
+  }
+  body #divViewAdsContainer .input-group {
+    margin-left: 5px;
+  }
+  body .col-xs-12.ads-centre {
+    padding-right: 5px;
+    padding-left: 5px;
+    font-size: 12px;
+  }
+  body div.panel-site-heading {
+    font-size: 12px;
+    padding: 8px 5px;
+  }
+  body div.ad-container a.ad-heading {
+    font-size: 14px;
+  }
+  body .ad-grouping {
+    padding-left: 5px;
+    margin-top: 10px;
+  }
+  body .ad-grouping .ad-grouping-heading {
+    font-size: 16px;
+  }
+}
+body a.fc-button {
+  display: inline-block;
+  background: url('../images/1452172690_square-facebook.png') no-repeat 100%;
+  height: 24px;
+  width: 24px;
+}
+body a.email-button {
+  display: inline-block;
+  background: url('../images/1452260594_send-mail.png') no-repeat 100%;
+  height: 24px;
+  width: 24px;
+}
+body .animate-enter,
+body .animate-leave {
+  -webkit-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  -moz-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  -ms-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  -o-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+body .animate-leave.animate-leave-active,
+body .animate-enter {
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+}
+body .animate-enter.animate-enter-active,
+body .animate-leave {
+  opacity: 1;
+  width: 150px;
+  height: 30px;
+}
+/*# sourceMappingURL=viewads.css.map */

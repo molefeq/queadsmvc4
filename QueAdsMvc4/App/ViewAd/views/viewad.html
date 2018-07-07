@@ -1,0 +1,172 @@
+﻿
+<div ng-show="viewInitialised" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+
+    <div class="row breadcrumb-container">
+        <ol class="breadcrumb">
+            <li ng-click="viewProvinceAds(policy.Province)"><a><b>{{policy.Province.Name}}</b></a></li>
+            <li ng-click="viewCityAds(policy.Province, policy.City)"><a><b>{{policy.City.Name}}</b></a></li>
+            <li ng-click="viewCategoryAds(policy.Category)"><a><b>{{policy.Category.Name}}</b></a></li>
+            <li ng-click="viewSubCategoryAds(policy.Category, policy.SubCategory)"><a><b>{{policy.SubCategory.Name}}</b></a></li>
+        </ol>
+    </div>
+    <div class="row view-ad-container">
+        <div class="col-md-8 col-xs-12">
+            <div class="row">
+                <div class="col-xs-12 xs-padding xs-visible">
+                    <!--<div style="float:right; width:150px; padding-right:10px;">
+                        <span ng-show="policy.CreateUser.MobileNumber" class="ad-reply-header-phone" style="text-align:left; width: 100%;">Phone: {{policy.CreateUser.MobileNumber}}</span>
+                        <button class="btn btn-success" id="btnBtnReplyToAdMobile" style="font-weight:600;padding:5px;"><span class="ad-reply-header-username">Click To Reply {{policy.CreateUser.Username}}</span></button>
+                    </div>-->
+                </div>
+                <div class="col-xs-12 xs-padding">
+                    <h3 class="ad-heading"> {{policy.Subject}}</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 xs-padding">
+                    <b>{{policy.Price | currency: 'R '}} {{policy.NegotiableInd? 'Negotiable':''}}</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 xs-padding">
+                    <hr />
+                </div>
+            </div>
+            <div class="row" ng-show="displayImages()">
+                <div class="col-xs-12 xs-padding">
+                    <div class="col-md-offset-2 col-md-8 col-xs-12 xs-padding">
+                        <img src="{{currentimage.NormalImageUrl}}" class="img-responsive" />
+                    </div>
+                    <div class="col-md-2 col-xs-12 thumbnail-image-container">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-4 xs-padding" ng-repeat="policyImage in policy.PolicyImages" ng-click="setCurrentImage(policyImage)">
+                                <img src="{{policyImage.PreviewImageUrl}}" class="img-responsive img-thumbnail">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 xs-padding">
+                    <div class="container-fluid">
+                        <div class="col-md-6 xs-padding">
+                            <div class="row">
+                                <div class="col-xs-5 text-right xs-padding-5">
+                                    <b>Date Listed</b>
+                                </div>
+                                <div class="col-xs-7 bold-div xs-padding-2">
+                                    {{policy.CreateDateText}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 xs-padding">
+                            <div class="row">
+                                <div class="col-xs-5 text-right xs-padding-5">
+                                    <b>Location</b>
+                                </div>
+                                <div class="col-xs-7 bold-div xs-padding-2">
+                                    {{policy.City.Name}}, {{policy.Province.Name}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 xs-padding" ng-repeat="policySubCategoryAdditionalField in policy.PolicySubCategoryAdditionalFields">
+                            <div class="row" ng-show="policySubCategoryAdditionalField.Value">
+                                <div class="col-xs-5 text-right xs-padding-5">
+                                    <b>{{policySubCategoryAdditionalField.DisplayText}} </b>
+                                </div>
+                                <div class="col-xs-7 bold-div xs-padding-2">
+                                    {{policySubCategoryAdditionalField.Value}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 xs-padding">
+                            <hr />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p>{{policy.Description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-12 ad-reply-container">
+            <div class="row">
+                <div class="col-xs-12 xs-padding" style="padding:0;">
+                    <a href="#" class="fc-button" ng-click="shareOnFacebook($event)"></a>
+                    <a href="{{emailUrl}}" class="email-button"></a>
+                </div>
+            </div>
+            <div class="row contact-row">
+                <div class="col-md-12 col-xs-12 xs-padding" style="padding:0;">
+                    <form ng-submit="postReply()" id="frmAdReply" name="frmAdReply" class="form-horizontal" role="form" novalidate que-ads-validator>
+                        <div class="panel panel-default">
+                            <div class="panel-heading panel-site-heading">
+                                <!--<a class="close" id="closeButton">X</a>-->
+                                <span class="ad-reply-header-username">Contact {{policy.CreateUser.Username}}</span><span ng-show="policy.CreateUser.MobileNumber" class="ad-reply-header-phone">Phone: {{policy.CreateUser.MobileNumber}}</span>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form-group">
+                                            <label for="PolicyReply.EmailAddress" class="col-sm-12 control-label left-control-label xs-padding-5">Email Address</label>
+                                            <div class="col-sm-12 form-element xs-padding-5">
+                                                <input name="PolicyReply_EmailAddress" class="form-control" type="text" placeholder="Enter Email Addresss"
+                                                       ng-model="policyreply.EmailAddress"
+                                                       ng-maxlength="200"
+                                                       ng-required="true"
+                                                       ng-pattern="/^([A-Za-z0-9_\.-]+)@([\dA-Za-z\.-]+)\.([A-Za-z\.]{2,6})$/"
+                                                       data-required-msg="Email Address is required." data-maxlength-msg="Email Address cannot be more than 200 characters"
+                                                       data-pattern-msg="Invalid Email Address Format." />
+                                                <p ng-show="frmAdReply['PolicyReply_EmailAddress'].$invalid" class="help-block" data-val-for="PolicyReply_EmailAddress"></p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="PolicyReply.PhoneNumber" class="col-sm-12 control-label left-control-label xs-padding-5">Phone (opitonal)</label>
+                                            <div class="col-sm-12 form-element xs-padding-5">
+                                                <input type="text" class="form-control" placeholder="Enter mobile number" name="PolicyReply_PhoneNumber"
+                                                       ng-model="policyreply.PhoneNumber"
+                                                       ng-maxlength="20"
+                                                       ng-pattern="/^([0-9]{0,20})$/"
+                                                       data-maxlength-msg="Mobile Number cannot be more than 20 numbers."
+                                                       data-pattern-msg="Invalid mobile number." />
+                                                <p ng-show="frmAdReply['PolicyReply_PhoneNumber'].$invalid" class="help-block" data-val-for="PolicyReply_PhoneNumber"></p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="PolicyReply.Name" class="col-sm-12 control-label left-control-label xs-padding-5">Name (opitonal)</label>
+                                            <div class="col-sm-12 form-element xs-padding-5">
+                                                <input type="text" class="form-control" placeholder="Enter your name" name="PolicyReply_Name"
+                                                       ng-model="policyreply.Name"
+                                                       ng-maxlength="200" data-maxlength-msg="Name cannot be more than 200 characters.">
+                                                <p ng-show="frmAdReply['PolicyReply_Name'].$invalid" class="help-block" data-val-for="PolicyReply_Name"></p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="PolicyReply.Message" class="col-sm-12 control-label left-control-label xs-padding-5">Your Message</label>
+                                            <div class="col-sm-12 form-element xs-padding-5">
+                                                <textarea class="form-control" name="PolicyReply_Message"
+                                                          ng-model="policyreply.Message"
+                                                          ng-required="true"
+                                                          data-required-msg="Message is required."></textarea>
+                                                <p ng-show="frmAdReply['PolicyReply_Message'].$invalid" class="help-block" data-val-for="PolicyReply_Message"></p>
+                                            </div>
+                                        </div>
+                                        <div ng-show="postreplied" style="color:green;">Reply was successful.</div>
+                                        <input ng-click="postReply()" type="submit" class="btn btn-success btn-block" value="Send" ng-disabled="postreplied" action-control action-value="Send" action-in-progress-value="Sending ..."></input>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div error-control></div>

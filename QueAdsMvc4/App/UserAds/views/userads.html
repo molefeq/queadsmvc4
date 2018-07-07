@@ -1,0 +1,90 @@
+﻿
+<div class="row" style="margin-top: 10px; padding: 5px; position:relative; min-height:200px;">
+    <div class="col-xs-12 ads-centre" ng-repeat="result in groupresults">
+        <div class="row">
+            <div class="col-xs-12 ad-grouping">
+                <div class="ad-grouping-heading">{{result.Key}}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div class="row ad-container" ng-repeat="policy in result.Models">
+                    <div class="col-md-12 col-xs-12" ng-click="viewpolicy(policy.Id)">
+                        <div class=" row">
+                            <div class="col-md-10 col-xs-12 text-center">
+                                <a ng-click="viewpolicy(policy.Id)" class="ad-heading" href="#"> {{policy.Subject}}</a>
+                            </div>
+                            <div class="col-md-2 col-xs-12 bold-text">
+                                {{policy.Price | currency: 'R '}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 col-xs-12">
+                                <img src="{{policy.PolicyImages[0].ThumbnailImageUrl}}" ng-show="policy.PolicyImages[0].ThumbnailImageUrl" style="width: 80px; height:60px;">
+                            </div>
+                            <div class="col-md-8 col-xs-12">
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12 ad-description">
+                                        {{policy.Description}}
+                                    </div>
+                                    <div class="col-md-12 col-xs-12">
+                                        <span>{{policy.Province.Name}} <span>/</span></span>
+                                        <span>{{policy.City.Name}} <span>/</span></span>
+                                        <span>{{policy.Category.Name}} <span>/</span></span>
+                                        <span>{{policy.SubCategory.Name}}</span>
+                                    </div>
+                                    <div class="col-md-12 col-xs-4">
+                                        <label class="control-label">{{policy.NegotiableInd? 'Negotiable' : 'Not Negotiable'}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-offset-2 col-md-10 col-xs-12">
+                        <a ng-click="editpolicy(policy.Id)" class="my-ad-link">Edit</a>| <a ng-click="deletepolicy(policy)" class="my-ad-link">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id='loadingmessage' loading-modal>
+        <div>
+            <p>Loading data, please wait while loading ads ...</p>
+            <div class="loading-image"></div>
+        </div>
+    </div>
+</div>
+<div class="row grid-footer" ng-show="groupresults.length > 0">
+    <div class="col-md-4 col-xs-12">
+        <b>Showing <span>{{gridPage.CurrentItemsCount}}</span> of <span>{{total}}</span> entries</b>
+    </div>
+    <div class="col-md-8 col-xs-12">
+        <ul class="pagination pagination-sm" style="float:right; margin:0px;">
+            <li ng-class="prevPageDisabled()" ng-click="setPage(1)">
+                <span title="Go to first page" class="item-cursor">
+                    <span class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
+                </span>
+            </li>
+            <li ng-class="prevPageDisabled()">
+                <span ng-click="prevPage()" class="item-cursor">&laquo;</span>
+            </li>
+            <li ng-repeat="n in gridPage.Pages" ng-class="{active: n == gridPage.PageIndex}" ng-click="setPage(n)">
+                <span class="item-cursor">{{n}}</span>
+            </li>
+            <li ng-class="nextPageDisabled()">
+                <span ng-click="nextPage()" class="item-cursor">&raquo;</span>
+            </li>
+            <li ng-class="nextPageDisabled()" ng-click="setPage(gridPage.TotalPages)">
+                <span title="Go to last page" class="item-cursor">
+                    <span class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div ng-hide="groupresults.length > 0">
+    No ads to display.
+</div>
+
+<div error-control></div>

@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Que Ads.co.za - User Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section styles{
+    <link href="@Url.Content("~/Content/local/viewads.css")" rel="stylesheet">
+}
+
+@section JsCode{
+    angular.bootstrap(document.getElementById('divUserAdsContainer'), ['editUserApp'])
+}
+
+@section scripts{
+    <script src="@Url.Content("~/App/EditUser/js/app.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/App/EditUser/js/controllers/edituser.js")" type="text/javascript"></script>
+}
+
+<div ng-non-bindable>
+    <div id="divUserAdsContainer" class="container-fluid">
+        <ng-view></ng-view>
+    </div>
+</div>
